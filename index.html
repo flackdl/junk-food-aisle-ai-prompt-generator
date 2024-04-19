@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>TJFA - AI generator</title>
+    <!-- app styles -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content" role="main">
+        <h1 class="title">TJFA - AI Prompt Generator</h1>
+        <div class="instructions">
+          <label for="fileSelect">Select a spreadsheet of items:</label>
+          <input
+            id="fileSelect"
+            onchange="parseSpreadsheet(event)"
+            type="file"
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+          />
+          <div id="results" style="display: none">
+            <i
+              >* Click a column button to randomly add an item to the results</i
+            >
+            <p id="results-buttons"></p>
+            <p>
+              <i>* Click a result button to randomly swap it out</i>
+            </p>
+            <div><strong>Results:</strong></div>
+            <p id="results-content">&nbsp;</p>
+            <div>
+              <button type="button" id="reset-button" onclick="resetResults()">
+                Reset Items
+              </button>
+              <button
+                type="button"
+                id="copy-button"
+                onclick="copyToClipboard()"
+              >
+                copy to clipboard
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- arquero -->
+    <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
+    <!-- ExcelJS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"
+      integrity="sha512-dlPw+ytv/6JyepmelABrgeYgHI0O+frEwgfnPdXDTOIZz+eDgfW07QXG02/O8COfivBdGNINy+Vex+lYmJ5rxw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- app script -->
+    <script src="/script.js"></script>
+  </body>
+</html>
